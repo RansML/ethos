@@ -41,7 +41,7 @@ def pick_persona(label: str) -> str:
 def ai_reply(client: OpenAI, system_prompt: str, history: list, max_tokens: int = 512) -> str:
     response = client.chat.completions.create(
         model="gpt-5.4-mini",
-        max_tokens=max_tokens,
+        max_completion_tokens=max_tokens,
         messages=[{"role": "system", "content": system_prompt}] + history,
     )
     return response.choices[0].message.content.strip()
@@ -110,7 +110,7 @@ def chat(p1: str, p2: str, delay: bool = True):
 
     seed_msgs = [{"role": "user", "content":
         "Open the conversation naturally, in character, already in this situation. One or two casual sentences."}]
-    opening = ai_reply(client, first_sys, seed_msgs, max_tokens=200)
+    opening = ai_reply(client, first_sys, seed_msgs, max_completion_tokens=200)
     history.append({"speaker": first_speaker, "content": opening})
     record(log_f, first_name, opening)
 

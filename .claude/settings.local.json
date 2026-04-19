@@ -2,7 +2,13 @@
   "permissions": {
     "allow": [
       "Bash(git push *)",
-      "Bash(chmod 600 /Users/rsenana1/ethos/.env)"
+      "Bash(chmod 600 /Users/rsenana1/ethos/.env)",
+      "Bash(python -c ' *)",
+      "Bash(git add *)",
+      "Bash(git commit *)"
+    ],
+    "additionalDirectories": [
+      "/Users/rsenana1/ethos"
     ]
   }
 }

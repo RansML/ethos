@@ -16,7 +16,8 @@ from concurrent.futures import ProcessPoolExecutor, as_completed
 
 # ── paths ─────────────────────────────────────────────────────────────
 ROOT        = os.path.abspath(os.path.join(os.path.dirname(__file__), "../.."))
-CHATS_DIR   = os.path.join(os.path.dirname(__file__), "results")
+_data_dir = f"/data/{os.environ.get('USER', 'user')}/ethos/experiments/experiment_1/results"
+CHATS_DIR = _data_dir if os.path.exists("/data") else os.path.join(os.path.dirname(__file__), "results")
 TRACKING_XL = os.path.join(os.path.dirname(__file__), "tracking.xlsx")
 sys.path.insert(0, ROOT)
 
@@ -69,7 +70,7 @@ def run_battle(pair: tuple[str, str]) -> dict:
         sys_p = sys1 if perspective == "1" else sys2
         r = client.chat.completions.create(
             model="gpt-5.4-mini",
-            max_tokens=max_tok,
+            max_completion_tokens=max_tok,
             messages=[{"role": "system", "content": sys_p}] + msgs_for(perspective),
         )
         tokens_in  += r.usage.prompt_tokens
@@ -88,7 +89,7 @@ def run_battle(pair: tuple[str, str]) -> dict:
         seed = [{"role": "user", "content":
                  "Open the conversation naturally, in character, already in this situation. One or two casual sentences."}]
         r0 = client.chat.completions.create(
-            model="gpt-5.4-mini", max_tokens=150,
+            model="gpt-5.4-mini", max_completion_tokens=150,
             messages=[{"role": "system", "content": sys1}] + seed,
         )
         tokens_in  += r0.usage.prompt_tokens
