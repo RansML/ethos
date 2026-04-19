@@ -41,8 +41,9 @@ ws.sheet_view.showGridLines = False
 ws.freeze_panes = "A2"
 
 headers = ["ID", "Persona 1", "Persona 2", "Status",
-           "Scenario", "Log File", "Start Time", "End Time", "Turns"]
-col_widths = [6, 10, 10, 12, 52, 38, 20, 20, 8]
+           "Scenario", "Log File", "Start Time", "End Time", "Turns",
+           "Tokens In", "Tokens Out", "Cost ($)"]
+col_widths = [6, 10, 10, 12, 52, 38, 20, 20, 8, 12, 12, 10]
 
 for ci, (h, w) in enumerate(zip(headers, col_widths), 1):
     c = ws.cell(row=1, column=ci, value=h)
