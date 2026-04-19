@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git push *)",
+      "Bash(chmod 600 /Users/rsenana1/ethos/.env)"
+    ]
+  }
+}

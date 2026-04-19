@@ -40,7 +40,7 @@ def pick_persona(label: str) -> str:
 
 def ai_reply(client: OpenAI, system_prompt: str, history: list, max_tokens: int = 512) -> str:
     response = client.chat.completions.create(
-        model="gpt-4o",
+        model="gpt-4o-mini",
         max_tokens=max_tokens,
         messages=[{"role": "system", "content": system_prompt}] + history,
     )

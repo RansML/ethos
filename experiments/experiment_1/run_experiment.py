@@ -65,7 +65,7 @@ def run_battle(pair: tuple[str, str]) -> dict:
     def reply(perspective: str, max_tok: int = 256) -> str:
         sys_p = sys1 if perspective == "1" else sys2
         r = client.chat.completions.create(
-            model="gpt-4o",
+            model="gpt-4o-mini",
             max_tokens=max_tok,
             messages=[{"role": "system", "content": sys_p}] + msgs_for(perspective),
         )
@@ -83,7 +83,7 @@ def run_battle(pair: tuple[str, str]) -> dict:
         seed = [{"role": "user", "content":
                  "Open the conversation naturally, in character, already in this situation. One or two casual sentences."}]
         opening = client.chat.completions.create(
-            model="gpt-4o", max_tokens=150,
+            model="gpt-4o-mini", max_tokens=150,
             messages=[{"role": "system", "content": sys1}] + seed,
         ).choices[0].message.content.strip()
 
