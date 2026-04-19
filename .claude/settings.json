@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pip3 install *)",
+      "Bash(python3 -c \"import anthropic; print\\('ok'\\)\")",
+      "Bash(python3 -c \"import ast, sys; ast.parse\\(open\\('/Users/rsenana1/ethos/main.py'\\).read\\(\\)\\); print\\('syntax ok'\\)\")",
+      "Bash(python3 main.py)"
+    ]
+  }
+}
