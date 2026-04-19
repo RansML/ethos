@@ -65,7 +65,7 @@ def build_messages_for(perspective: str) -> list:
 def ai_reply(perspective: str, max_tokens: int = 512) -> str:
     msgs = build_messages_for(perspective)
     response = client.chat.completions.create(
-        model="gpt-4o-mini",
+        model="gpt-5.4-mini",
         max_tokens=max_tokens,
         messages=msgs,
     )
@@ -127,7 +127,7 @@ def start():
         session["history"].append({"speaker": "user_seed", "content": opening_seed})
         msgs = [{"role": "system", "content": session["system1"]},
                 {"role": "user", "content": opening_seed}]
-        r = client.chat.completions.create(model="gpt-4o-mini", max_tokens=200, messages=msgs)
+        r = client.chat.completions.create(model="gpt-5.4-mini", max_tokens=200, messages=msgs)
         opening = r.choices[0].message.content.strip()
         session["history"] = [{"speaker": "1", "content": opening}]
         write_log(p1, opening)
@@ -135,7 +135,7 @@ def start():
         opening_seed = "Open the conversation naturally, in character, already in this situation. One or two casual sentences."
         msgs = [{"role": "system", "content": session["system2"]},
                 {"role": "user", "content": opening_seed}]
-        r = client.chat.completions.create(model="gpt-4o-mini", max_tokens=200, messages=msgs)
+        r = client.chat.completions.create(model="gpt-5.4-mini", max_tokens=200, messages=msgs)
         opening = r.choices[0].message.content.strip()
         session["history"] = [{"speaker": "2", "content": opening}]
         write_log(p2, opening)

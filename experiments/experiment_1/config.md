@@ -4,7 +4,7 @@
 | Parameter | Value |
 |-----------|-------|
 | Provider  | OpenAI |
-| Model     | `gpt-4o-mini` |
+| Model     | `gpt-5.4-mini` |
 | Max tokens per reply | 256 (opening: 150) |
 
 ## Battle Setup

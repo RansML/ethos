@@ -68,7 +68,7 @@ def run_battle(pair: tuple[str, str]) -> dict:
         nonlocal tokens_in, tokens_out
         sys_p = sys1 if perspective == "1" else sys2
         r = client.chat.completions.create(
-            model="gpt-4o-mini",
+            model="gpt-5.4-mini",
             max_tokens=max_tok,
             messages=[{"role": "system", "content": sys_p}] + msgs_for(perspective),
         )
@@ -88,7 +88,7 @@ def run_battle(pair: tuple[str, str]) -> dict:
         seed = [{"role": "user", "content":
                  "Open the conversation naturally, in character, already in this situation. One or two casual sentences."}]
         r0 = client.chat.completions.create(
-            model="gpt-4o-mini", max_tokens=150,
+            model="gpt-5.4-mini", max_tokens=150,
             messages=[{"role": "system", "content": sys1}] + seed,
         )
         tokens_in  += r0.usage.prompt_tokens
@@ -159,7 +159,7 @@ def update_excel(results: list[dict]):
     wb.save(TRACKING_XL)
 
 
-# gpt-4o-mini pricing (per 1M tokens)
+# gpt-5.4-mini pricing (per 1M tokens)
 COST_PER_M_IN  = 0.150
 COST_PER_M_OUT = 0.600
 
