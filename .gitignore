@@ -7,5 +7,5 @@ __pycache__/
 # keep folders but ignore contents
 chats/*
 !chats/.gitkeep
-experiments/experiment_1/results/*
-!experiments/experiment_1/results/.gitkeep
+experiments/experiment_1/data_collected/*
+!experiments/experiment_1/data_collected/.gitkeep

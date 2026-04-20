@@ -15,7 +15,7 @@ import json
 import time
 
 EXP_DIR      = os.path.dirname(__file__)
-DEIDENT_DIR  = os.path.join(EXP_DIR, "results_deidentified")
+DEIDENT_DIR  = os.path.join(EXP_DIR, "data_collected_deidentified")
 OUTPUT_CSV   = os.path.join(EXP_DIR, "guess_results.csv")
 ROOT         = os.path.abspath(os.path.join(EXP_DIR, "../.."))
 sys.path.insert(0, ROOT)

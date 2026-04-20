@@ -4,8 +4,8 @@ Post-processing for Experiment 1 battle logs.
 
 - De-identifies MBTI type names with random single letters (A, B, C…)
 - Fixes spacing: no blank line between same speaker, blank line between different speakers
-- Saves de-identified files to results_deidentified/
-- Saves identity mapping to results_deidentified/identity_map.csv
+- Saves de-identified files to data_collected_deidentified/
+- Saves identity mapping to data_collected_deidentified/identity_map.csv
 """
 import os
 import sys
@@ -15,9 +15,9 @@ import string
 
 # ── paths ─────────────────────────────────────────────────────────────
 EXP_DIR   = os.path.dirname(__file__)
-_data_dir = f"/data/{os.environ.get('USER', 'user')}/ethos/experiments/experiment_1/results"
-RESULTS_DIR     = _data_dir if os.path.exists("/data") else os.path.join(EXP_DIR, "results")
-DEIDENT_DIR     = os.path.join(EXP_DIR, "results_deidentified")
+_data_dir = f"/data/{os.environ.get('USER', 'user')}/ethos/experiments/experiment_1/data_collected"
+RESULTS_DIR     = _data_dir if os.path.exists("/data") else os.path.join(EXP_DIR, "data_collected")
+DEIDENT_DIR     = os.path.join(EXP_DIR, "data_collected_deidentified")
 IDENTITY_MAP_CSV = os.path.join(DEIDENT_DIR, "identity_map.csv")
 
 LETTERS = list(string.ascii_uppercase)   # A–Z

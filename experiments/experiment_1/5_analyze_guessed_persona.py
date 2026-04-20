@@ -12,7 +12,7 @@ import os
 import csv
 
 EXP_DIR       = os.path.dirname(__file__)
-DEIDENT_DIR   = os.path.join(EXP_DIR, "results_deidentified")
+DEIDENT_DIR   = os.path.join(EXP_DIR, "data_collected_deidentified")
 IDENTITY_CSV  = os.path.join(DEIDENT_DIR, "identity_map.csv")
 GUESS_CSV     = os.path.join(EXP_DIR, "guess_results.csv")
 OUTPUT_CSV    = os.path.join(EXP_DIR, "analysis.csv")

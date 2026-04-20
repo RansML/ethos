@@ -19,8 +19,8 @@ import openai
 
 # ── paths ─────────────────────────────────────────────────────────────
 ROOT        = os.path.abspath(os.path.join(os.path.dirname(__file__), "../.."))
-_data_dir = f"/data/{os.environ.get('USER', 'user')}/ethos/experiments/experiment_1/results"
-CHATS_DIR = _data_dir if os.path.exists("/data") else os.path.join(os.path.dirname(__file__), "results")
+_data_dir = f"/data/{os.environ.get('USER', 'user')}/ethos/experiments/experiment_1/data_collected"
+CHATS_DIR = _data_dir if os.path.exists("/data") else os.path.join(os.path.dirname(__file__), "data_collected")
 TRACKING_XL = os.path.join(os.path.dirname(__file__), "tracking.xlsx")
 ERROR_LOG   = os.path.join(os.path.dirname(__file__), "errors.log")
 sys.path.insert(0, ROOT)
