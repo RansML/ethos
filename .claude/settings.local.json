@@ -6,7 +6,8 @@
       "Bash(python -c ' *)",
       "Bash(git add *)",
       "Bash(git commit *)",
-      "Bash(python -c \"import experiments.experiment_1.run_experiment\")"
+      "Bash(python -c \"import experiments.experiment_1.run_experiment\")",
+      "Bash(python3 -c \"import py_compile; py_compile.compile\\('experiments/experiment_1/postprocess.py'\\); print\\('ok'\\)\")"
     ],
     "additionalDirectories": [
       "/Users/rsenana1/ethos"
