@@ -11,14 +11,18 @@ import os
 import sys
 import random
 import time
+import traceback
 from datetime import datetime
 from concurrent.futures import ProcessPoolExecutor, as_completed
+
+import openai
 
 # ── paths ─────────────────────────────────────────────────────────────
 ROOT        = os.path.abspath(os.path.join(os.path.dirname(__file__), "../.."))
 _data_dir = f"/data/{os.environ.get('USER', 'user')}/ethos/experiments/experiment_1/results"
 CHATS_DIR = _data_dir if os.path.exists("/data") else os.path.join(os.path.dirname(__file__), "results")
 TRACKING_XL = os.path.join(os.path.dirname(__file__), "tracking.xlsx")
+ERROR_LOG   = os.path.join(os.path.dirname(__file__), "errors.log")
 sys.path.insert(0, ROOT)
 
 from dotenv import load_dotenv
@@ -79,37 +83,46 @@ def run_battle(pair: tuple[str, str]) -> dict:
 
     start = datetime.now()
 
-    with open(log_path, "w") as f:
-        f.write(f"Experiment 1 — {p1} vs {p2}\n")
-        f.write(f"Scenario: {scenario}\n")
-        f.write(f"Started: {start.strftime('%Y-%m-%d %H:%M:%S')}\n")
-        f.write("=" * 60 + "\n\n")
+    try:
+        with open(log_path, "w") as f:
+            f.write(f"Experiment 1 — {p1} vs {p2}\n")
+            f.write(f"Scenario: {scenario}\n")
+            f.write(f"Started: {start.strftime('%Y-%m-%d %H:%M:%S')}\n")
+            f.write("=" * 60 + "\n\n")
 
-        # opening from p1
-        seed = [{"role": "user", "content":
-                 "Open the conversation naturally, in character, already in this situation. One or two casual sentences."}]
-        r0 = client.chat.completions.create(
-            model="gpt-5.4-mini", max_completion_tokens=150,
-            messages=[{"role": "system", "content": sys1}] + seed,
-        )
-        tokens_in  += r0.usage.prompt_tokens
-        tokens_out += r0.usage.completion_tokens
-        opening = r0.choices[0].message.content.strip()
+            seed = [{"role": "user", "content":
+                     "Open the conversation naturally, in character, already in this situation. One or two casual sentences."}]
+            r0 = client.chat.completions.create(
+                model="gpt-5.4-mini", max_completion_tokens=150,
+                messages=[{"role": "system", "content": sys1}] + seed,
+            )
+            tokens_in  += r0.usage.prompt_tokens
+            tokens_out += r0.usage.completion_tokens
+            opening = r0.choices[0].message.content.strip()
 
-        history.append({"speaker": "1", "content": opening})
-        f.write(f"[{p1}] {opening}\n")
+            history.append({"speaker": "1", "content": opening})
+            f.write(f"[{p1}] {opening}\n")
 
-        while len(history) < MAX_TURNS:
-            last      = history[-1]["speaker"]
-            next_sp   = "2" if last == "1" else "1"
-            next_name = p2 if next_sp == "2" else p1
-            text      = reply(next_sp)
-            history.append({"speaker": next_sp, "content": text})
-            f.write(f"[{next_name}] {text}\n")
-            f.flush()
+            while len(history) < MAX_TURNS:
+                last      = history[-1]["speaker"]
+                next_sp   = "2" if last == "1" else "1"
+                next_name = p2 if next_sp == "2" else p1
+                text      = reply(next_sp)
+                history.append({"speaker": next_sp, "content": text})
+                f.write(f"[{next_name}] {text}\n")
+                f.flush()
 
-        end = datetime.now()
-        f.write(f"\n[ended: {end.strftime('%Y-%m-%d %H:%M:%S')}]\n")
+            end = datetime.now()
+            f.write(f"\n[ended: {end.strftime('%Y-%m-%d %H:%M:%S')}]\n")
+
+    except openai.APIError as e:
+        raise RuntimeError(f"OpenAI API error [{type(e).__name__}]: {e}") from e
+    except openai.RateLimitError as e:
+        raise RuntimeError(f"Rate limit hit: {e}") from e
+    except openai.AuthenticationError as e:
+        raise RuntimeError(f"Auth error (check API key): {e}") from e
+    except Exception as e:
+        raise RuntimeError(f"Unexpected error: {type(e).__name__}: {e}\n{traceback.format_exc()}") from e
 
     return {
         "p1": p1, "p2": p2,
@@ -220,26 +233,40 @@ def main():
         print(f"Batch {b_idx+1}/{len(batches)} — running {len(batch)} battles...")
         batch_results = []
 
+        failed = False
         with ProcessPoolExecutor(max_workers=BATCH_SIZE) as ex:
             futures = {ex.submit(run_battle, pair): pair for pair in batch}
             for fut in as_completed(futures):
                 pair = futures[fut]
+                p1, p2 = pair
                 try:
                     result = fut.result()
                     batch_results.append(result)
-                    print(f"  ✓  {result['p1']} vs {result['p2']} — {result['turns']} turns")
+                    print(f"  ✓  {p1} vs {p2} — {result['turns']} turns")
                 except Exception as e:
-                    p1, p2 = pair
-                    print(f"  ✗  {p1} vs {p2} — ERROR: {e}")
-                    batch_results.append({
-                        "p1": p1, "p2": p2, "scenario": "", "turns": 0,
-                        "log": "", "start": "", "end": "", "status": f"error: {e}",
-                        "tokens_in": 0, "tokens_out": 0,
-                    })
+                    err_msg = (
+                        f"\n[ERROR] Batch {b_idx+1} — {p1} vs {p2}\n"
+                        f"Time   : {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n"
+                        f"Error  : {e}\n"
+                        f"{'─'*60}\n"
+                    )
+                    print(f"  ✗  {p1} vs {p2} — {e}")
+                    print("\n[STOPPING] Error encountered. Saving progress and exiting.")
+                    with open(ERROR_LOG, "a") as ef:
+                        ef.write(err_msg)
+                    # cancel remaining futures
+                    for f2 in futures:
+                        f2.cancel()
+                    failed = True
+                    break
 
         all_results.extend(batch_results)
         update_excel(batch_results)
         print(f"  → tracking.xlsx updated\n")
+
+        if failed:
+            print(f"Error log : {ERROR_LOG}\n")
+            sys.exit(1)
 
     exp_end = datetime.now()
     update_config(exp_start, exp_end, all_results)

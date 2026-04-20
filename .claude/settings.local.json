@@ -5,7 +5,8 @@
       "Bash(chmod 600 /Users/rsenana1/ethos/.env)",
       "Bash(python -c ' *)",
       "Bash(git add *)",
-      "Bash(git commit *)"
+      "Bash(git commit *)",
+      "Bash(python -c \"import experiments.experiment_1.run_experiment\")"
     ],
     "additionalDirectories": [
       "/Users/rsenana1/ethos"
