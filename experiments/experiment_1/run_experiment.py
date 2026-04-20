@@ -72,14 +72,21 @@ def run_battle(pair: tuple[str, str]) -> dict:
     def reply(perspective: str, max_tok: int = 256) -> str:
         nonlocal tokens_in, tokens_out
         sys_p = sys1 if perspective == "1" else sys2
-        r = client.chat.completions.create(
-            model="gpt-5.4-mini",
-            max_completion_tokens=max_tok,
-            messages=[{"role": "system", "content": sys_p}] + msgs_for(perspective),
-        )
-        tokens_in  += r.usage.prompt_tokens
-        tokens_out += r.usage.completion_tokens
-        return r.choices[0].message.content.strip()
+        for attempt in range(6):
+            try:
+                r = client.chat.completions.create(
+                    model="gpt-5.4-mini",
+                    max_completion_tokens=max_tok,
+                    messages=[{"role": "system", "content": sys_p}] + msgs_for(perspective),
+                )
+                tokens_in  += r.usage.prompt_tokens
+                tokens_out += r.usage.completion_tokens
+                return r.choices[0].message.content.strip()
+            except openai.RateLimitError as e:
+                wait = 2 ** attempt  # 1,2,4,8,16,32s
+                print(f"    [rate limit] retrying in {wait}s... ({p1} vs {p2})")
+                time.sleep(wait)
+        raise RuntimeError(f"Rate limit: failed after 6 retries ({p1} vs {p2})")
 
     start = datetime.now()
 
@@ -92,13 +99,22 @@ def run_battle(pair: tuple[str, str]) -> dict:
 
             seed = [{"role": "user", "content":
                      "Open the conversation naturally, in character, already in this situation. One or two casual sentences."}]
-            r0 = client.chat.completions.create(
-                model="gpt-5.4-mini", max_completion_tokens=150,
-                messages=[{"role": "system", "content": sys1}] + seed,
-            )
-            tokens_in  += r0.usage.prompt_tokens
-            tokens_out += r0.usage.completion_tokens
-            opening = r0.choices[0].message.content.strip()
+            for attempt in range(6):
+                try:
+                    r0 = client.chat.completions.create(
+                        model="gpt-5.4-mini", max_completion_tokens=150,
+                        messages=[{"role": "system", "content": sys1}] + seed,
+                    )
+                    tokens_in  += r0.usage.prompt_tokens
+                    tokens_out += r0.usage.completion_tokens
+                    opening = r0.choices[0].message.content.strip().replace("\n", " ")
+                    break
+                except openai.RateLimitError:
+                    wait = 2 ** attempt
+                    print(f"    [rate limit] retrying opening in {wait}s... ({p1} vs {p2})")
+                    time.sleep(wait)
+            else:
+                raise RuntimeError(f"Rate limit: failed opening after 6 retries ({p1} vs {p2})")
 
             history.append({"speaker": "1", "content": opening})
             f.write(f"[{p1}] {opening}\n")
@@ -107,7 +123,7 @@ def run_battle(pair: tuple[str, str]) -> dict:
                 last      = history[-1]["speaker"]
                 next_sp   = "2" if last == "1" else "1"
                 next_name = p2 if next_sp == "2" else p1
-                text      = reply(next_sp)
+                text      = reply(next_sp).replace("\n", " ")
                 history.append({"speaker": next_sp, "content": text})
                 f.write(f"[{next_name}] {text}\n")
                 f.flush()
