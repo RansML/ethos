@@ -34,38 +34,52 @@ def assign_ids(personas: list[str], used: set[str]) -> dict[str, str]:
     return mapping
 
 
-def parse_messages(lines: list[str]) -> list[tuple[str, str]]:
+def parse_messages(lines: list[str]) -> list[tuple[str | None, str]]:
     """
     Parse log lines into (speaker, text) tuples.
-    Header lines (before first [SPEAKER] line) are returned as (None, line).
+    - Header lines (before first [SPEAKER]) are (None, line).
+    - Continuation lines belonging to the same speaker are merged into
+      the previous message, joined with a space.
     """
-    messages = []
+    messages  = []
+    in_header = True
+
     for line in lines:
         line = line.rstrip("\n")
+
         if line.startswith("[") and "]" in line:
+            in_header   = False
             bracket_end = line.index("]")
-            speaker = line[1:bracket_end]
-            text    = line[bracket_end + 2:]   # skip "] "
-            messages.append((speaker, text))
+            speaker     = line[1:bracket_end]
+            text        = line[bracket_end + 2:].strip()
+            messages.append([speaker, text])
+
+        elif in_header:
+            messages.append([None, line])
+
         else:
-            messages.append((None, line))      # header / metadata / blank
-    return messages
+            # continuation — belongs to last speaker
+            stripped = line.strip()
+            if stripped and messages and messages[-1][0] is not None:
+                messages[-1][1] = (messages[-1][1] + " " + stripped).strip()
+            # blank continuation lines are ignored
+
+    return [(s, t) for s, t in messages]
 
 
-def reformat(messages: list[tuple[str, str]], id_map: dict[str, str]) -> str:
+def reformat(messages: list[tuple[str | None, str]], id_map: dict[str, str]) -> str:
     """
     Rebuild the file:
     - Replace speaker names with their IDs
-    - No blank line between consecutive same-speaker lines
     - One blank line between different speakers
-    - Preserve header (non-speaker) lines as-is
+    - No blank line between consecutive messages from the same speaker
+    - Preserve header lines as-is
     """
-    out = []
+    out          = []
     prev_speaker = None
 
     for speaker, text in messages:
         if speaker is None:
-            # header / metadata line
             out.append(text)
             prev_speaker = None
             continue
@@ -73,7 +87,7 @@ def reformat(messages: list[tuple[str, str]], id_map: dict[str, str]) -> str:
         anon = id_map.get(speaker, speaker)
 
         if prev_speaker is not None and anon != prev_speaker:
-            out.append("")          # blank line between different speakers
+            out.append("")          # blank line between speakers
 
         out.append(f"[{anon}] {text}")
         prev_speaker = anon
