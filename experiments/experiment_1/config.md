@@ -24,8 +24,8 @@ Fixed for all 256 battles (`SCENARIO_SEEDS[0]`).
 ## Output
 | Item | Location |
 |------|----------|
-| Battle logs | `experiments/experiment_1/results/` |
-| Excel tracker | `experiments/experiment_1/tracking.xlsx` |
+| Battle logs | `experiments/experiment_1/data_collected/` |
+| Excel tracker | `experiments/experiment_1/tracking_collect_data.xlsx` |
 
 ## Tracker Sheets
 - **Experiments** — 256 rows: ID, Persona 1, Persona 2, Status, Scenario, Log File, Start Time, End Time, Turns
