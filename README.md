@@ -13,7 +13,7 @@ An AI-powered chat simulator where MBTI personality types come to life. Chat aga
 - **CLI** — terminal-based version with the same battle modes
 - **Full logging** — every conversation saved as a timestamped text file in `chats/`
 - **50-message cap** — conversations end automatically after 50 turns
-- **Experiments** — batch runner for large-scale 16×16 persona battles with Excel tracking
+- **Experiments** — batch runner for large-scale 16×16 persona battles with Excel tracking and persona-guessing analysis
 
 ---
 
@@ -86,15 +86,30 @@ Both modes support all 16 MBTI types. Either persona can also be set to **Human*
 ## Experiments
 
 ### Experiment 1 — 16×16 Battle
-All 256 persona pair combinations run against a fixed scenario, 8 battles in parallel.
+
+All 256 persona pair combinations run against a fixed scenario, 8 battles in parallel. Run the scripts in order:
 
 ```bash
-python experiments/experiment_1/run_experiment.py
+python experiments/experiment_1/1_setup_exp_tracking.py      # create Excel tracker
+python experiments/experiment_1/2_collect_data.py            # run 256 battles
+python experiments/experiment_1/3_deidentify_data_collected.py  # de-identify logs
+python experiments/experiment_1/4_guess_persona.py           # GPT guesses MBTI per speaker
+python experiments/experiment_1/5_analyze_guessed_persona.py # merge + compute accuracy
 ```
 
-Results land in `experiments/experiment_1/results/`. Progress is tracked in `experiments/experiment_1/tracking.xlsx` with three sheets:
+#### Output files
 
-- **Experiments** — flat list of all 256 battles with status, scenario, log file, timestamps, and turn count
+| # | File | Description |
+|---|------|-------------|
+| 1 | `1_tracking_collect_data.xlsx` | Excel tracker — 256 battles, 16×16 grid, batch plan |
+| 2 | `data_collected/` | Raw battle logs (one `.txt` per pair) |
+| 3 | `data_collected_deidentified/` | De-identified logs + `identity_map.csv` |
+| 4 | `4_results_guessed_persona_with_reasons.csv` | Per-battle accuracy: true type vs GPT top-3 guesses |
+| 5 | `5_results_analyzed_guessed_persona.csv` | Raw GPT guesses (file, speaker, rank, type, probability, reasoning) |
+
+#### Excel tracker sheets
+
+- **Experiments** — flat list of all 256 battles with status, scenario, log file, timestamps, turns, tokens, and cost
 - **Grid** — 16×16 visual status grid
 - **Batch Plan** — 32 batches of 8, showing which pairs run together
 
@@ -110,20 +125,24 @@ ethos/
 ├── templates/
 │   └── index.html                   # browser GUI (HTML/CSS/JS)
 ├── chats/                           # saved conversation logs
-├── experiments/
-│   └── experiment_1/
-│       ├── run_experiment.py        # 16×16 batch runner
-│       ├── setup_tracking.py        # generates tracking.xlsx
-│       ├── tracking.xlsx            # Excel tracker
-│       └── results/                 # battle logs
-└── MBTI_Chat_Presentation.pptx      # project presentation
+└── experiments/
+    └── experiment_1/
+        ├── 1_setup_exp_tracking.py          # create Excel tracker
+        ├── 2_collect_data.py                # run 256 battles
+        ├── 3_deidentify_data_collected.py   # de-identify logs
+        ├── 4_guess_persona.py               # GPT guesses MBTI per speaker
+        ├── 5_analyze_guessed_persona.py     # merge results + accuracy
+        ├── 1_tracking_collect_data.xlsx     # Excel tracker
+        ├── config.md                        # experiment config + run results
+        ├── data_collected/                  # raw battle logs
+        └── data_collected_deidentified/     # de-identified logs + identity map
 ```
 
 ---
 
 ## Tech Stack
 
-- **OpenAI GPT-4o** — powers all persona responses
+- **OpenAI gpt-5.4-mini** — powers all persona responses
 - **Flask** — local web server for the GUI
 - **python-dotenv** — loads API key from `.env`
 - **openpyxl** — Excel tracking for experiments
