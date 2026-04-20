@@ -3,7 +3,7 @@
 Guess MBTI persona from de-identified chat files.
 
 For each speaker in each file, asks GPT to predict the top 3 MBTI types
-with probability and reasoning. Results saved to guess_results.csv.
+with probability and reasoning. Results saved to 5_results_analyzed_guessed_persona.csv.
 
 Usage:
     python experiments/experiment_1/guess_persona.py
@@ -16,7 +16,7 @@ import time
 
 EXP_DIR      = os.path.dirname(__file__)
 DEIDENT_DIR  = os.path.join(EXP_DIR, "data_collected_deidentified")
-OUTPUT_CSV   = os.path.join(EXP_DIR, "guess_results.csv")
+OUTPUT_CSV   = os.path.join(EXP_DIR, "5_results_analyzed_guessed_persona.csv")
 ROOT         = os.path.abspath(os.path.join(EXP_DIR, "../.."))
 sys.path.insert(0, ROOT)
 

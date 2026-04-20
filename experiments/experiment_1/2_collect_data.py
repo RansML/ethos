@@ -2,7 +2,7 @@
 """
 Experiment 1 — 16 vs 16 MBTI Battle
 All 256 persona pairs (16×16), run 8 at a time in parallel.
-Results saved to experiments/experiment_1/chats/ and tracked in tracking_collect_data.xlsx.
+Results saved to experiments/experiment_1/chats/ and tracked in 1_tracking_collect_data.xlsx.
 
 Usage:
     python experiments/experiment_1/run_experiment.py
@@ -21,7 +21,7 @@ import openai
 ROOT        = os.path.abspath(os.path.join(os.path.dirname(__file__), "../.."))
 _data_dir = f"/data/{os.environ.get('USER', 'user')}/ethos/experiments/experiment_1/data_collected"
 CHATS_DIR = _data_dir if os.path.exists("/data") else os.path.join(os.path.dirname(__file__), "data_collected")
-TRACKING_XL = os.path.join(os.path.dirname(__file__), "tracking_collect_data.xlsx")
+TRACKING_XL = os.path.join(os.path.dirname(__file__), "1_tracking_collect_data.xlsx")
 ERROR_LOG   = os.path.join(os.path.dirname(__file__), "errors.log")
 sys.path.insert(0, ROOT)
 
@@ -281,7 +281,7 @@ def main():
 
         all_results.extend(batch_results)
         update_excel(batch_results)
-        print(f"  → tracking_collect_data.xlsx updated\n")
+        print(f"  → 1_tracking_collect_data.xlsx updated\n")
 
         if failed:
             print(f"Error log : {ERROR_LOG}\n")

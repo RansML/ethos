@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Merge identity_map.csv + guess_results.csv into results_guessed_persona_with_reasons.csv.
+Merge identity_map.csv + 5_results_analyzed_guessed_persona.csv into 4_results_guessed_persona_with_reasons.csv.
 
 For each battle file and each speaker, shows the top-3 GPT guesses alongside
 the true MBTI type, and flags top-1 / top-3 correctness.
@@ -14,8 +14,8 @@ import csv
 EXP_DIR       = os.path.dirname(__file__)
 DEIDENT_DIR   = os.path.join(EXP_DIR, "data_collected_deidentified")
 IDENTITY_CSV  = os.path.join(DEIDENT_DIR, "identity_map.csv")
-GUESS_CSV     = os.path.join(EXP_DIR, "guess_results.csv")
-OUTPUT_CSV    = os.path.join(EXP_DIR, "results_guessed_persona_with_reasons.csv")
+GUESS_CSV     = os.path.join(EXP_DIR, "5_results_analyzed_guessed_persona.csv")
+OUTPUT_CSV    = os.path.join(EXP_DIR, "4_results_guessed_persona_with_reasons.csv")
 
 
 def true_type(original: str) -> str:
@@ -24,7 +24,7 @@ def true_type(original: str) -> str:
 
 
 def load_guesses(path: str) -> dict[tuple[str, str], list[dict]]:
-    """Return {(file, speaker): [rank1, rank2, rank3]} from guess_results.csv."""
+    """Return {(file, speaker): [rank1, rank2, rank3]} from 5_results_analyzed_guessed_persona.csv."""
     guesses: dict[tuple[str, str], list[dict]] = {}
     if not os.path.exists(path):
         return guesses
@@ -61,7 +61,7 @@ def main():
         print(f"identity_map.csv not found: {IDENTITY_CSV}")
         return
     if not os.path.exists(GUESS_CSV):
-        print(f"guess_results.csv not found: {GUESS_CSV}")
+        print(f"5_results_analyzed_guessed_persona.csv not found: {GUESS_CSV}")
         return
 
     guesses = load_guesses(GUESS_CSV)

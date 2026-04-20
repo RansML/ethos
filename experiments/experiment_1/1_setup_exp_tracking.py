@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Creates the initial tracking_collect_data.xlsx for Experiment 1."""
+"""Creates the initial 1_tracking_collect_data.xlsx for Experiment 1."""
 import os, sys
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
 
@@ -9,7 +9,7 @@ from openpyxl.utils import get_column_letter
 from data import MBTI_PERSONAS
 
 TYPES  = list(MBTI_PERSONAS.keys())
-OUT    = os.path.join(os.path.dirname(__file__), "tracking_collect_data.xlsx")
+OUT    = os.path.join(os.path.dirname(__file__), "1_tracking_collect_data.xlsx")
 
 # ── colours ──────────────────────────────────────────────────────────
 C_HEADER  = "1F3864"   # dark navy
