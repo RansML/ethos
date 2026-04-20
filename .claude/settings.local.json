@@ -10,10 +10,12 @@
       "Bash(python3 -c \"import py_compile; py_compile.compile\\('experiments/experiment_1/postprocess.py'\\); print\\('ok'\\)\")",
       "Bash(python3 -c ' *)",
       "Bash(python experiments/experiment_1/postprocess.py)",
-      "Bash(python3 -c \"import py_compile; py_compile.compile\\('experiments/experiment_1/postprocess.py'\\); py_compile.compile\\('experiments/experiment_1/run_experiment.py'\\); print\\('ok'\\)\")"
+      "Bash(python3 -c \"import py_compile; py_compile.compile\\('experiments/experiment_1/postprocess.py'\\); py_compile.compile\\('experiments/experiment_1/run_experiment.py'\\); print\\('ok'\\)\")",
+      "Bash(python3 experiments/experiment_1/postprocess.py)"
     ],
     "additionalDirectories": [
-      "/Users/rsenana1/ethos"
+      "/Users/rsenana1/ethos",
+      "/Users/rsenana1/ethos/experiments/experiment_1/results_deidentified"
     ]
   }
 }

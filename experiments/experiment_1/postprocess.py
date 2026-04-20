@@ -108,9 +108,10 @@ def process_file(filepath: str, used_letters: set[str]) -> dict | None:
 
     if len(personas) < 1:
         return None
-    # self-match: INTJ-1 and INTJ-2 are distinct personas
-    if len(personas) == 1 and personas[0].endswith("-1"):
-        base = personas[0][:-2]
+    # old-format self-match: only one unique name (e.g. [INTJ] for both sides)
+    # new-format self-match: INTJ-1 / INTJ-2 already distinct
+    if len(personas) == 1:
+        base = personas[0][:-2] if personas[0].endswith("-1") else personas[0]
         personas = [f"{base}-1", f"{base}-2"]
 
     id_map    = assign_ids(personas, used_letters)
@@ -118,13 +119,18 @@ def process_file(filepath: str, used_letters: set[str]) -> dict | None:
 
     reformatted = reformat(messages, id_map)
 
-    out_name = os.path.basename(filepath)
-    out_path = os.path.join(DEIDENT_DIR, out_name)
+    # rename file using assigned letters instead of MBTI types
+    orig_name = os.path.basename(filepath)
+    # strip "P1_vs_P2_" prefix → keep "20260419_170738.txt"
+    suffix    = "_".join(orig_name.split("_")[3:])
+    id1, id2  = id_map[personas[0]], id_map[personas[1]]
+    out_name  = f"{id1}_vs_{id2}_{suffix}"
+    out_path  = os.path.join(DEIDENT_DIR, out_name)
     with open(out_path, "w") as f:
         f.write(reformatted)
 
     return {
-        "original_file": os.path.basename(filepath),
+        "original_file": orig_name,
         "deidentified_file": out_name,
         **{f"persona{i+1}_original": p for i, p in enumerate(personas)},
         **{f"persona{i+1}_id": id_map[p] for i, p in enumerate(personas)},
