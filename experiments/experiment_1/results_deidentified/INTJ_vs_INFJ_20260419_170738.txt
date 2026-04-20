@@ -3,104 +3,92 @@ Scenario: a tense family dinner where something unexpected was just revealed
 Started: 2026-04-19 17:07:38
 ============================================================
 
-[R] So… that just happened. I’m still trying to figure out if I’m more annoyed or impressed.
+[Q] So… that just happened. I’m still trying to figure out if I’m more annoyed or impressed.
 
-[S] Yeah… same. It was kind of a disaster, but also weirdly hard to look away from.
+[C] Yeah… same. It was kind of a disaster, but also weirdly hard to look away from. I think I’m mostly annoyed, honestly. But there’s a part of me that can’t deny the timing was almost cruelly perfect. You okay?
 
-I think I’m mostly annoyed, honestly. But there’s a part of me that can’t deny the timing was almost cruelly perfect.  
+[Q] Yeah, I’m fine. Just recalculating. The timing was brutal, but honestly? It explains a lot. Not in a comforting way. More like… pieces finally clicked into place, and I don’t love the picture. We can leave when you want.
 
-You okay?
-[R] Yeah, I’m fine. Just recalculating.
+[C] Yeah. Same. It’s one of those truths that doesn’t heal anything, it just makes the shape of things clearer. We can go now if you want. No need to sit here and let it marinate.
 
-The timing was brutal, but honestly? It explains a lot. Not in a comforting way. More like… pieces finally clicked into place, and I don’t love the picture.
+[Q] Yeah. Let’s go. I’m done pretending this dinner can be salvaged.
 
-We can leave when you want.
-[S] Yeah. Same. It’s one of those truths that doesn’t heal anything, it just makes the shape of things clearer.
+[C] Good. Let’s get out of here. You don’t have to keep performing for anyone.
 
-We can go now if you want. No need to sit here and let it marinate.
-[R] Yeah. Let’s go.
+[Q] I know. And I’m not. C’mon, before somebody says something worse.
 
-I’m done pretending this dinner can be salvaged.
-[S] Good. Let’s get out of here.
+[C] Yeah. Right behind you.
 
-You don’t have to keep performing for anyone.
-[R] I know. And I’m not.
+[Q] Good. Stay close. Let's just get out clean.
 
-C’mon, before somebody says something worse.
-[S] Yeah. Right behind you.
+[C] Always. Let’s keep it simple and disappear.
 
-[R] Good. Stay close. Let's just get out clean.
+[Q] Exactly. Quiet exit, no extra damage.
 
-[S] Always. Let’s keep it simple and disappear.
+[C] That’s the plan. No drama, no openings. Just out.
 
-[R] Exactly. Quiet exit, no extra damage.
+[Q] Perfect. Door, car, silence. Then we deal with the rest later.
 
-[S] That’s the plan. No drama, no openings.
+[C] Yeah. Later’s for thinking. Right now, just leaving.
 
-Just out.
-[R] Perfect. Door, car, silence. Then we deal with the rest later.
+[Q] Yeah. Right now, movement over meaning. Come on.
 
-[S] Yeah. Later’s for thinking. Right now, just leaving.
+[C] Coming.
 
-[R] Yeah. Right now, movement over meaning.
+[Q] Good. Don’t look back.
 
-Come on.
-[S] Coming.
+[C] Wouldn’t dream of it.
 
-[R] Good. Don’t look back.
+[Q] Good. That’s the right call.
 
-[S] Wouldn’t dream of it.
+[C] I know. Let's go.
 
-[R] Good. That’s the right call.
+[Q] Yeah. Go.
 
-[S] I know. Let's go.
+[C] On it.
 
-[R] Yeah. Go.
+[Q] I know.
 
-[S] On it.
+[C] You do.
 
-[R] I know.
+[Q] Obviously.
 
-[S] You do.
+[C] Yeah. Let's get out.
 
-[R] Obviously.
+[Q] Exactly. Move.
 
-[S] Yeah. Let's get out.
+[C] Already moving.
 
-[R] Exactly. Move.
+[Q] Good. That's all I needed.
 
-[S] Already moving.
+[C] Then we’re set.
 
-[R] Good. That's all I needed.
+[Q] Yeah. We’re set.
 
-[S] Then we’re set.
+[C] Mm. Together, then.
 
-[R] Yeah. We’re set.
+[Q] Together.
 
-[S] Mm. Together, then.
+[C] Always.
 
-[R] Together.
+[Q] Always.
 
-[S] Always.
+[C] Yeah.
 
-[R] Always.
+[Q] Mm.
 
-[S] Yeah.
+[C] Mm.
 
-[R] Mm.
+[Q] Now keep walking.
 
-[S] Mm.
+[C] Right there with you.
 
-[R] Now keep walking.
+[Q] Good. Stay there.
 
-[S] Right there with you.
+[C] I am.
 
-[R] Good. Stay there.
+[Q] I know. Just don’t slow down.
 
-[S] I am.
+[C] Wouldn’t.
 
-[R] I know. Just don’t slow down.
-
-[S] Wouldn’t.
-
-[R] Thought not.
+[Q] Thought not.

@@ -106,8 +106,12 @@ def process_file(filepath: str, used_letters: set[str]) -> dict | None:
     messages  = parse_messages(raw_lines)
     personas  = list(dict.fromkeys(s for s, _ in messages if s is not None))
 
-    if len(personas) < 2:
+    if len(personas) < 1:
         return None
+    # self-match: INTJ-1 and INTJ-2 are distinct personas
+    if len(personas) == 1 and personas[0].endswith("-1"):
+        base = personas[0][:-2]
+        personas = [f"{base}-1", f"{base}-2"]
 
     id_map    = assign_ids(personas, used_letters)
     used_letters.update(id_map.values())

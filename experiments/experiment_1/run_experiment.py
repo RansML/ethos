@@ -51,6 +51,9 @@ def run_battle(pair: tuple[str, str]) -> dict:
     timestamp  = datetime.now().strftime("%Y%m%d_%H%M%S")
     log_name   = f"{p1}_vs_{p2}_{timestamp}.txt"
     log_path   = os.path.join(CHATS_DIR, log_name)
+    # when same type battles itself, use suffixed labels so logs are unambiguous
+    label1 = f"{p1}-1" if p1 == p2 else p1
+    label2 = f"{p2}-2" if p1 == p2 else p2
 
     sys1 = build_system_prompt(p1, MBTI_PERSONAS[p1], scenario) + \
            f"\n\nYou are talking with {p2}. Keep it short and casual."
@@ -117,12 +120,12 @@ def run_battle(pair: tuple[str, str]) -> dict:
                 raise RuntimeError(f"Rate limit: failed opening after 6 retries ({p1} vs {p2})")
 
             history.append({"speaker": "1", "content": opening})
-            f.write(f"[{p1}] {opening}\n")
+            f.write(f"[{label1}] {opening}\n")
 
             while len(history) < MAX_TURNS:
                 last      = history[-1]["speaker"]
                 next_sp   = "2" if last == "1" else "1"
-                next_name = p2 if next_sp == "2" else p1
+                next_name = label2 if next_sp == "2" else label1
                 text      = reply(next_sp).replace("\n", " ")
                 history.append({"speaker": next_sp, "content": text})
                 f.write(f"[{next_name}] {text}\n")

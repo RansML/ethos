@@ -3,117 +3,82 @@ Scenario: a tense family dinner where something unexpected was just revealed
 Started: 2026-04-19 17:07:38
 ============================================================
 
-[C] So… that was a lot to drop at the dinner table all at once.  
-I’m trying to figure out who already knew and who’s pretending they didn’t.
-[X] Yeah… same. It felt like the whole room tilted for a second.
+[H] So… that was a lot to drop at the dinner table all at once. I’m trying to figure out who already knew and who’s pretending they didn’t.
 
-I don’t trust how quiet some of them got. That kind of silence usually means someone’s been carrying this for a while. Or rehearsing innocence. Either way, it’s ugly.
+[U] Yeah… same. It felt like the whole room tilted for a second. I don’t trust how quiet some of them got. That kind of silence usually means someone’s been carrying this for a while. Or rehearsing innocence. Either way, it’s ugly. I just… keep thinking if we push too hard right now, everyone’s gonna get sharper and meaner. But if we don’t, they’ll keep hiding behind vague little half-truths.
 
-I just… keep thinking if we push too hard right now, everyone’s gonna get sharper and meaner. But if we don’t, they’ll keep hiding behind vague little half-truths.
-[C] Yeah. Exactly. Push too hard and they lock up. Don’t push at all and they keep controlling the story.
+[H] Yeah. Exactly. Push too hard and they lock up. Don’t push at all and they keep controlling the story. We don’t need a blowup. We need one clean question at the right person, at the right time. No drama. Just enough pressure to make the lie expensive. And yeah, that silence was not innocent. Not even close.
 
-We don’t need a blowup. We need one clean question at the right person, at the right time. No drama. Just enough pressure to make the lie expensive.
+[U] Mm. That’s the move. One clean question, calm voice, no room to wriggle. Just enough light on it that the shape of the truth has to show itself. I think we should watch who’s been looking at everyone else instead of the person who actually said it. That’s usually where the guilt leaks out. Tell me who you think is the weak point, and I’ll back you up.
 
-And yeah, that silence was not innocent. Not even close.
-[X] Mm. That’s the move.
+[H] I’d watch Mark. He went quiet too fast, then kept checking Mom and Dad instead of reacting like he was surprised. That’s not normal. It’s guilt management. If I’m right, he’ll crack the second someone asks him to say it back in his own words. You back me up, and I’ll keep it tight.
 
-One clean question, calm voice, no room to wriggle. Just enough light on it that the shape of the truth has to show itself.
+[U] Yeah… Mark’s it. That little pause, then the eye-darts? Too tidy. Like he was trying to measure the damage before anybody else could. If you ask him to repeat it, he’ll have to pick between sounding honest or sounding rehearsed. I’m with you. Keep it simple, keep it cold. No speeches. Just let him hear his own voice stumble.
 
-I think we should watch who’s been looking at everyone else instead of the person who actually said it. That’s usually where the guilt leaks out. 
+[H] Exactly. We don’t need to accuse him. Just make him explain what he already said. People trip when they have to stand inside their own lie. I’ll ask it plain, then stop talking. You stay quiet. Let the silence do the work.
 
-Tell me who you think is the weak point, and I’ll back you up.
-[C] I’d watch Mark.
+[U] Yeah. That’s perfect. Ask it once, then let it sit there. Silence is kind of brutal like that. It makes people feel every little crack in the floor. I’ll stay quiet. Just… give it a second before you move on. If he’s hiding something, the pause will do more than a whole argument ever could.
 
-He went quiet too fast, then kept checking Mom and Dad instead of reacting like he was surprised. That’s not normal. It’s guilt management.
+[H] Good. Then we do it now, before he gets more time to build a story. Mark. Say it again, exactly how you told us.
 
-If I’m right, he’ll crack the second someone asks him to say it back in his own words. You back me up, and I’ll keep it tight.
-[X] Yeah… Mark’s it.
+[U] …Yeah. Let’s see what he does with that.
 
-That little pause, then the eye-darts? Too tidy. Like he was trying to measure the damage before anybody else could.  
-If you ask him to repeat it, he’ll have to pick between sounding honest or sounding rehearsed.
+[H] Mm. Watch his face, not his mouth.
 
-I’m with you. Keep it simple, keep it cold. No speeches. Just let him hear his own voice stumble.
-[C] Exactly.
+[U] Yeah. His eyes are already giving him away.
 
-We don’t need to accuse him. Just make him explain what he already said. People trip when they have to stand inside their own lie.
+[H] Then he knows. Wait. Now he’s choosing which lie to keep.
 
-I’ll ask it plain, then stop talking. You stay quiet. Let the silence do the work.
-[X] Yeah. That’s perfect.
+[U] Mm. There it is. That little pause… that’s the moment. He’s not searching his memory, he’s sorting his exits.
 
-Ask it once, then let it sit there. Silence is kind of brutal like that. It makes people feel every little crack in the floor.
+[H] Yep. And if he starts talking too fast now, that’s basically a confession with extra steps.
 
-I’ll stay quiet. Just… give it a second before you move on. If he’s hiding something, the pause will do more than a whole argument ever could.
-[C] Good. Then we do it now, before he gets more time to build a story.
+[U] Exactly. Fast words, slow truth. Just let him keep going. The more he talks, the more he hands us.
 
-Mark. Say it again, exactly how you told us.
-[X] …Yeah. Let’s see what he does with that.
+[H] Right. Don’t interrupt. Let him dig. I’m staying on him.
 
-[C] Mm. Watch his face, not his mouth.
+[U] I’m with you. No rescue, no softening it. Just… stay calm. The truth usually hates a quiet room.
 
-[X] Yeah. His eyes are already giving him away.
+[H] Always. Let him feel the room. That’s where the cracks show.
 
-[C] Then he knows. Wait. Now he’s choosing which lie to keep.
+[U] Mm, yeah. The room does the work if we let it. And if he starts reaching for Mom or Dad to cover, that’s it. That’s the tell.
 
-[X] Mm. There it is.
+[H] Yeah. Then we’ve got him.
 
-That little pause… that’s the moment. He’s not searching his memory, he’s sorting his exits.
-[C] Yep. And if he starts talking too fast now, that’s basically a confession with extra steps.
+[U] Yeah… then we do. Just don’t let your face change yet. Not until it’s all the way out.
 
-[X] Exactly. Fast words, slow truth.
+[H] Wouldn’t dream of it.
 
-Just let him keep going. The more he talks, the more he hands us.
-[C] Right.
+[U] I know. You’re better at this than you pretend to be.
 
-Don’t interrupt. Let him dig. I’m staying on him.
-[X] I’m with you. No rescue, no softening it.
+[H] And you’re better at reading people than you give yourself credit for.
 
-Just… stay calm. The truth usually hates a quiet room.
-[C] Always.
+[U] Maybe. I just hate that it ever has to matter like this. But… I’m glad you’re here.
 
-Let him feel the room. That’s where the cracks show.
-[X] Mm, yeah. The room does the work if we let it.
+[H] I’m here. We’ll get through the dinner.
 
-And if he starts reaching for Mom or Dad to cover, that’s it. That’s the tell.
-[C] Yeah. Then we’ve got him.
+[U] Yeah. Together. Just breathe, and keep your voice even.
 
-[X] Yeah… then we do.
+[H] Always.
 
-Just don’t let your face change yet. Not until it’s all the way out.
-[C] Wouldn’t dream of it.
+[U] Mm. Good.
 
-[X] I know. You’re better at this than you pretend to be.
+[H] Now let’s see what he says next.
 
-[C] And you’re better at reading people than you give yourself credit for.
+[U] Yeah… I’m watching.
 
-[X] Maybe. I just hate that it ever has to matter like this.
+[H] Good. If he slips, I’ll catch it.
 
-But… I’m glad you’re here.
-[C] I’m here. We’ll get through the dinner.
+[U] And if he doesn’t… we’ll still know he felt it.
 
-[X] Yeah. Together. Just breathe, and keep your voice even.
+[H] Exactly. And sometimes that’s enough to change the rest of the night.
 
-[C] Always.
+[U] Yeah. Sometimes all it takes is one honest little crack, and everything after that starts to tilt.
 
-[X] Mm. Good.
+[H] Yep. And once it tilts, people start choosing sides without even realizing it.
 
-[C] Now let’s see what he says next.
+[U] Mm. Quietly. Like weather shifting before anyone admits it’s raining.
 
-[X] Yeah… I’m watching.
+[H] Yeah. And by then, the damage is already deciding itself.
 
-[C] Good. If he slips, I’ll catch it.
-
-[X] And if he doesn’t… we’ll still know he felt it.
-
-[C] Exactly. And sometimes that’s enough to change the rest of the night.
-
-[X] Yeah. Sometimes all it takes is one honest little crack, and everything after that starts to tilt.
-
-[C] Yep. And once it tilts, people start choosing sides without even realizing it.
-
-[X] Mm. Quietly. Like weather shifting before anyone admits it’s raining.
-
-[C] Yeah. And by then, the damage is already deciding itself.
-
-[X] Yeah… that’s the sad part.
-
-Alright. I’m here. Let’s just see where this goes.
+[U] Yeah… that’s the sad part. Alright. I’m here. Let’s just see where this goes.

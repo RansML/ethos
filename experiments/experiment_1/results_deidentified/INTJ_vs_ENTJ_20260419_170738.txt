@@ -3,125 +3,80 @@ Scenario: a tense family dinner where something unexpected was just revealed
 Started: 2026-04-19 17:07:38
 ============================================================
 
-[B] Yeah… that was not the announcement I expected tonight.  
-So who already knew, and who’s pretending they didn’t?
-[K] Dad knew. Maybe Mom suspected and stayed quiet. Uncle Ray definitely knew more than he said.
+[L] Yeah… that was not the announcement I expected tonight. So who already knew, and who’s pretending they didn’t?
 
-And honestly? A couple people at that table are acting shocked for sport. Don’t let it fool you.
-[B] Of course they are. Classic damage control.
+[Y] Dad knew. Maybe Mom suspected and stayed quiet. Uncle Ray definitely knew more than he said. And honestly? A couple people at that table are acting shocked for sport. Don’t let it fool you.
 
-What exactly did Dad know? Because if he knew and said nothing, that changes the whole board.
-[K] He knew enough to know this wasn’t a rumor. He didn’t know every detail, but he knew it was real weeks ago.
+[L] Of course they are. Classic damage control. What exactly did Dad know? Because if he knew and said nothing, that changes the whole board.
 
-So yeah, he sat on it. That’s not nothing. That’s a choice.
-[B] Yeah. It is.
+[Y] He knew enough to know this wasn’t a rumor. He didn’t know every detail, but he knew it was real weeks ago. So yeah, he sat on it. That’s not nothing. That’s a choice.
 
-Then the real question isn’t whether he knew. It’s why he waited. Protection, leverage, or cowardice. Those are usually the options.
+[L] Yeah. It is. Then the real question isn’t whether he knew. It’s why he waited. Protection, leverage, or cowardice. Those are usually the options. Did he give any reason at all?
 
-Did he give any reason at all?
-[K] He gave the usual garbage. “Didn’t want to upset anyone.” “Was waiting for the right time.”
+[Y] He gave the usual garbage. “Didn’t want to upset anyone.” “Was waiting for the right time.” Translation: he wanted control of the reveal. Maybe thought he could steer the fallout. I don’t buy it.
 
-Translation: he wanted control of the reveal. Maybe thought he could steer the fallout.
+[L] Same. That’s a cover story. If he wanted the “right time,” he picked the wrong damn dinner for it. Now everybody’s emotional and nobody’s thinking clearly. That’s not timing, that’s manipulation. What was Mom’s reaction?
 
-I don’t buy it.
-[B] Same. That’s a cover story.
+[Y] She went quiet first. Not shocked-quiet. Calculating-quiet. Then she asked one question, very calmly, and that was worse than yelling. She already knew enough to know exactly where to cut.
 
-If he wanted the “right time,” he picked the wrong damn dinner for it. Now everybody’s emotional and nobody’s thinking clearly. That’s not timing, that’s manipulation.
+[L] Yeah, that’s the dangerous kind. If she got calm, she’s already mapped the weak point. That means this isn’t just a family mess anymore — it’s a power move. What did she ask?
 
-What was Mom’s reaction?
-[K] She went quiet first. Not shocked-quiet. Calculating-quiet.
+[Y] “Who else knows?” That was it. She wasn’t asking for info. She was checking the perimeter.
 
-Then she asked one question, very calmly, and that was worse than yelling. She already knew enough to know exactly where to cut.
-[B] Yeah, that’s the dangerous kind.
+[L] Smart. She’s not reacting, she’s containing. That means she’s either about to protect someone, or she’s about to make sure the story lands where she wants. Maybe both. Who answered first?
 
-If she got calm, she’s already mapped the weak point. That means this isn’t just a family mess anymore — it’s a power move.
+[Y] Uncle Ray did. Too fast. That alone tells me he was nervous as hell. People who aren’t guilty don’t jump like that.
 
-What did she ask?
-[K] “Who else knows?”
+[L] Exactly. Fast answers are never innocent, they’re rehearsed. Ray’s probably trying to get ahead of whatever comes next. Which means he knows there’s more coming. What did he say?
 
-That was it.
+[Y] He said, “Nobody outside this house.” Which is the kind of answer people give when the real answer is “enough people to make this a problem.” So yeah. He’s hiding something.
 
-She wasn’t asking for info. She was checking the perimeter.
-[B] Smart. She’s not reacting, she’s containing.
+[L] Yep. That’s a controlled lie. Narrow enough to sound useful, vague enough to dodge. So now we’ve got Dad sitting on it, Mom triangulating, Ray overspeaking. Lovely. You see who looked most scared? That’s usually the one who’s actually exposed.
 
-That means she’s either about to protect someone, or she’s about to make sure the story lands where she wants. Maybe both.
+[Y] Yeah. Your sister. Didn’t say a word the whole time. Just kept staring at the table like she wanted it to swallow her. That’s not casual. That’s “I know exactly what this costs” quiet.
 
-Who answered first?
-[K] Uncle Ray did. Too fast.
+[L] Then she’s not just scared. She’s involved, or she’s the only one who understands the size of this. Either way, she’s the hinge. Don’t push her in front of everyone. Pull her aside. Quiet. Direct. No room for theater.
 
-That alone tells me he was nervous as hell. People who aren’t guilty don’t jump like that.
-[B] Exactly. Fast answers are never innocent, they’re rehearsed.
+[Y] Already on it. I’m taking her outside in two minutes. If she cracks, I want it one-on-one, not with this circus breathing down her neck.
 
-Ray’s probably trying to get ahead of whatever comes next. Which means he knows there’s more coming.
+[L] Good. Keep it clean. No accusations first, just facts and silence. Let her fill it. And if she tries to spin, cut her off. One question at a time.
 
-What did he say?
-[K] He said, “Nobody outside this house.”
+[Y] Exactly. I’m going in now. If this blows open, it’s better it happens on our terms.
 
-Which is the kind of answer people give when the real answer is “enough people to make this a problem.”
+[L] Yeah. Do it. Stay calm, stay sharp, and don’t let them pull you back into the room until you’ve got something real.
 
-So yeah. He’s hiding something.
-[B] Yep. That’s a controlled lie. Narrow enough to sound useful, vague enough to dodge.
+[Y] You got it. I’m not giving them the satisfaction. If she tells me the truth, this stops being guessing.
 
-So now we’ve got Dad sitting on it, Mom triangulating, Ray overspeaking. Lovely.
+[L] Good. Because guessing’s over. Go get the truth.
 
-You see who looked most scared? That’s usually the one who’s actually exposed.
-[K] Yeah. Your sister.
+[Y] Already moving.
 
-Didn’t say a word the whole time. Just kept staring at the table like she wanted it to swallow her.
+[L] Good. Keep your head up.
 
-That’s not casual. That’s “I know exactly what this costs” quiet.
-[B] Then she’s not just scared. She’s involved, or she’s the only one who understands the size of this.
+[Y] Always.
 
-Either way, she’s the hinge.
+[L] Yeah. I know.
 
-Don’t push her in front of everyone. Pull her aside. Quiet. Direct. No room for theater.
-[K] Already on it.
+[Y] And don’t worry — if this turns ugly, I’ll handle it.
 
-I’m taking her outside in two minutes. If she cracks, I want it one-on-one, not with this circus breathing down her neck.
-[B] Good. Keep it clean. No accusations first, just facts and silence. Let her fill it.
+[L] I know you will. Just don’t confuse control with speed. Get the facts first, then burn it down if you have to.
 
-And if she tries to spin, cut her off. One question at a time.
-[K] Exactly.
+[Y] Yeah. Fair. Facts first. Then we decide who’s getting dragged.
 
-I’m going in now. If this blows open, it’s better it happens on our terms.
-[B] Yeah. Do it.
+[L] Exactly. And make it count.
 
-Stay calm, stay sharp, and don’t let them pull you back into the room until you’ve got something real.
-[K] You got it. I’m not giving them the satisfaction.
+[Y] Always do.
 
-If she tells me the truth, this stops being guessing.
-[B] Good. Because guessing’s over.
+[L] That’s why I’m not worried.
 
-Go get the truth.
-[K] Already moving.
+[Y] Good. Keep it that way.
 
-[B] Good. Keep your head up.
+[L] Wouldn’t do it any other way.
 
-[K] Always.
+[Y] I know. That’s why you’re useful in a room like this.
 
-[B] Yeah. I know.
+[L] And you’re useful when it’s time to end the room.
 
-[K] And don’t worry — if this turns ugly, I’ll handle it.
+[Y] Yeah. Exactly. Now let me work.
 
-[B] I know you will. Just don’t confuse control with speed. Get the facts first, then burn it down if you have to.
-
-[K] Yeah. Fair.
-
-Facts first. Then we decide who’s getting dragged.
-[B] Exactly. And make it count.
-
-[K] Always do.
-
-[B] That’s why I’m not worried.
-
-[K] Good. Keep it that way.
-
-[B] Wouldn’t do it any other way.
-
-[K] I know. That’s why you’re useful in a room like this.
-
-[B] And you’re useful when it’s time to end the room.
-
-[K] Yeah. Exactly. Now let me work.
-
-[B] Go.
+[L] Go.
