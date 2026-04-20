@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Merge identity_map.csv + guess_results.csv into analysis.csv.
+Merge identity_map.csv + guess_results.csv into results_guessed_persona_with_reasons.csv.
 
 For each battle file and each speaker, shows the top-3 GPT guesses alongside
 the true MBTI type, and flags top-1 / top-3 correctness.
@@ -15,7 +15,7 @@ EXP_DIR       = os.path.dirname(__file__)
 DEIDENT_DIR   = os.path.join(EXP_DIR, "data_collected_deidentified")
 IDENTITY_CSV  = os.path.join(DEIDENT_DIR, "identity_map.csv")
 GUESS_CSV     = os.path.join(EXP_DIR, "guess_results.csv")
-OUTPUT_CSV    = os.path.join(EXP_DIR, "analysis.csv")
+OUTPUT_CSV    = os.path.join(EXP_DIR, "results_guessed_persona_with_reasons.csv")
 
 
 def true_type(original: str) -> str:
