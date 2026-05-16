@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """
 Experiment 1 — 16 vs 16 MBTI Battle
-All 256 persona pairs (16×16), run 8 at a time in parallel.
-Results saved to experiments/experiment_1/chats/ and tracked in 1_tracking_collect_data.xlsx.
+All 256 persona pairs (16×16), run one at a time sequentially.
+Results saved to experiments/experiment_1/data_collected/ and tracked in 1_tracking_collect_data.xlsx.
 
 Usage:
-    python experiments/experiment_1/run_experiment.py
+    python experiments/experiment_1/2_collect_data.py
 """
 import os
 import sys
@@ -13,7 +13,6 @@ import random
 import time
 import traceback
 from datetime import datetime
-from concurrent.futures import ProcessPoolExecutor, as_completed
 
 import openai
 
@@ -33,7 +32,7 @@ from openai import OpenAI
 
 TYPES       = list(MBTI_PERSONAS.keys())          # 16 types
 MAX_TURNS   = 50
-BATCH_SIZE  = 8
+BATCH_SIZE  = 1
 SCENARIO    = SCENARIO_SEEDS[0]                   # "a tense family dinner where something unexpected was just revealed"
 
 
@@ -243,47 +242,29 @@ def main():
     pairs     = all_pairs()
     total     = len(pairs)
     exp_start = datetime.now()
-    print(f"\nExperiment 1 — {total} battles ({BATCH_SIZE} parallel)\n")
+    print(f"\nExperiment 1 — {total} battles (sequential)\n")
 
     all_results = []
-    batches     = [pairs[i:i+BATCH_SIZE] for i in range(0, total, BATCH_SIZE)]
 
-    for b_idx, batch in enumerate(batches):
-        print(f"Batch {b_idx+1}/{len(batches)} — running {len(batch)} battles...")
-        batch_results = []
-
-        failed = False
-        with ProcessPoolExecutor(max_workers=BATCH_SIZE) as ex:
-            futures = {ex.submit(run_battle, pair): pair for pair in batch}
-            for fut in as_completed(futures):
-                pair = futures[fut]
-                p1, p2 = pair
-                try:
-                    result = fut.result()
-                    batch_results.append(result)
-                    print(f"  ✓  {p1} vs {p2} — {result['turns']} turns")
-                except Exception as e:
-                    err_msg = (
-                        f"\n[ERROR] Batch {b_idx+1} — {p1} vs {p2}\n"
-                        f"Time   : {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n"
-                        f"Error  : {e}\n"
-                        f"{'─'*60}\n"
-                    )
-                    print(f"  ✗  {p1} vs {p2} — {e}")
-                    print("\n[STOPPING] Error encountered. Saving progress and exiting.")
-                    with open(ERROR_LOG, "a") as ef:
-                        ef.write(err_msg)
-                    # cancel remaining futures
-                    for f2 in futures:
-                        f2.cancel()
-                    failed = True
-                    break
-
-        all_results.extend(batch_results)
-        update_excel(batch_results)
-        print(f"  → 1_tracking_collect_data.xlsx updated\n")
-
-        if failed:
+    for idx, pair in enumerate(pairs, 1):
+        p1, p2 = pair
+        print(f"[{idx}/{total}] {p1} vs {p2}...", end=" ", flush=True)
+        try:
+            result = run_battle(pair)
+            all_results.append(result)
+            update_excel([result])
+            print(f"{result['turns']} turns  ✓")
+        except Exception as e:
+            err_msg = (
+                f"\n[ERROR] {p1} vs {p2}\n"
+                f"Time   : {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n"
+                f"Error  : {e}\n"
+                f"{'─'*60}\n"
+            )
+            print(f"✗  {e}")
+            print("\n[STOPPING] Error encountered. Saving progress and exiting.")
+            with open(ERROR_LOG, "a") as ef:
+                ef.write(err_msg)
             print(f"Error log : {ERROR_LOG}\n")
             sys.exit(1)
 
