@@ -238,8 +238,10 @@ def update_config(exp_start: datetime, exp_end: datetime, results: list[dict]):
 
 
 # ── main ─────────────────────────────────────────────────────────────
-def main():
+def main(limit: int = None):
     pairs     = all_pairs()
+    if limit:
+        pairs = pairs[:limit]
     total     = len(pairs)
     exp_start = datetime.now()
     print(f"\nExperiment 1 — {total} battles (sequential)\n")
@@ -277,4 +279,8 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--limit", type=int, default=None, help="Only run the first N battles")
+    args = parser.parse_args()
+    main(limit=args.limit)
